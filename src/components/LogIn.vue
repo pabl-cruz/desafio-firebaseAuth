@@ -5,18 +5,26 @@ export default {
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
+      showUserLoggedIn: false,
+      showLogInError: false
     }
   },
   methods: {
     async login() {
       const { email, password } = this
+      //refrescar estado de alerta a valor false
+      this.showLogInError = false
       try {
-        const user = await signInWithEmailAndPassword(auth, email, password)
-        console.log('Usuario Inicio sesión', user)
+        await signInWithEmailAndPassword(auth, email, password)
+        this.showUserLoggedIn = false
+        this.$nextTick(() => {
+          this.showUserLoggedIn = true
+        })
         this.$router.push('/home')
       } catch (error) {
         console.error('Error al Iniciar Sesión:', error.message)
+        this.showLogInError = true
       }
     }
   }
@@ -27,6 +35,18 @@ export default {
     <h1 class="text-center my-4">Bienvenido a Portal de Datos</h1>
     <div class="my-3">
       <h2>Iniciar Sesión</h2>
+    </div>
+    <div
+      class="alert alert-success alert-dismissible fade show"
+      role="alert"
+      v-if="showUserLoggedIn"
+    >
+      Ingreso correcto, redirigiendo a pantalla de inicio...
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" v-if="showLogInError">
+      Error al ingresar usuario, intente de nuevo con una credencial válida
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <form @submit.prevent="login()">
       <div class="mb-3">

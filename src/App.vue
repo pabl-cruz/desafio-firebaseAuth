@@ -4,11 +4,14 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <nav class="navbar sticky-top bg-dark border-bottom border-body" data-bs-theme="dark">
+    <nav
+      class="navbar sticky-top bg-dark border-bottom border-body navbar-expand-md"
+      data-bs-theme="dark"
+    >
       <div class="container">
         <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="70" height="70" />
         <button
-          class="navbar-toggler"
+          class="navbar-toggler d-md-none"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNavAltMarkup"
@@ -19,7 +22,7 @@ import { RouterLink, RouterView } from 'vue-router'
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ms-auto">
+          <div class="navbar-nav ms-auto d-none d-md-flex">
             <a class="nav-link active text-white" aria-current="page"
               ><RouterLink to="/">Inicio</RouterLink></a
             >

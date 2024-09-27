@@ -5,17 +5,19 @@ export default {
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
+      showUserCreated: false,
+      showSignUpError: false
     }
   },
   methods: {
     async register() {
       try {
-        const userCredential = await createUserWithEmailAndPassword(auth, this.email, this.password)
-        const user = userCredential.user
-        console.log('Usuario registrado', user)
+        await createUserWithEmailAndPassword(auth, this.email, this.password)
+        this.showUserCreated = true
       } catch (error) {
         console.error('Error al registrar:', error.message)
+        this.showSignUpError = true
       }
     }
   }
@@ -27,6 +29,22 @@ export default {
     <div class="my-3">
       <h2>Crear una cuenta</h2>
       <p>Es gratis y al iniciar sesión, podrás acceder a tu portal personal</p>
+    </div>
+    <div
+      class="alert alert-primary alert-dismissible fade show"
+      role="alert"
+      v-show="showUserCreated"
+    >
+      Usuario Creado exitosamente!
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div
+      class="alert alert-danger alert-dismissible fade show"
+      role="alert"
+      v-show="showSignUpError"
+    >
+      Error al crear usuario, intente de nuevo
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <form @submit.prevent="register()">
       <div class="mb-3">

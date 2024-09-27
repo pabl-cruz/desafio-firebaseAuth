@@ -1,6 +1,8 @@
 # desafio-firebaseAuth
 
-This template should help get you started developing with Vue 3 in Vite.
+Desafío evaluado de M7 Bootcamp Programación Front-end de Desafío Latam. Vistas de manejo de usuarios, autorización y acceso a vistas guardadas usando Vue, Vue Router, Firebase Auth y Hosting.
+
+se puede ver deploy de aplicación acá.
 
 ## Recommended IDE Setup
 
