@@ -2,7 +2,7 @@
 
 Desafío evaluado de M7 Bootcamp Programación Front-end de Desafío Latam. Vistas de manejo de usuarios, autorización y acceso a vistas guardadas usando Vue, Vue Router, Firebase Auth y Hosting.
 
-se puede ver deploy de aplicación [acá](https://fir-auth2-774fc.web.app).
+se puede ver deployment de aplicación [acá](https://fir-auth2-774fc.web.app).
 
 ## Recommended IDE Setup
 
