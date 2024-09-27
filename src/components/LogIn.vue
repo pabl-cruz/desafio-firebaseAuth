@@ -14,6 +14,7 @@ export default {
       try {
         const user = await signInWithEmailAndPassword(auth, email, password)
         console.log('Usuario Inicio sesión', user)
+        this.$router.push('/home')
       } catch (error) {
         console.error('Error al Iniciar Sesión:', error.message)
       }

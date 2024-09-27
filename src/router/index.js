@@ -19,9 +19,27 @@ const router = createRouter({
     {
       path: '/home',
       name: 'home',
-      component: () => import('../views/HomeView.vue')
+      component: () => import('../views/HomeView.vue'),
+      //hacerlo accesible solo al iniciar sesion
+      meta: {
+        login: true
+      }
     }
   ]
 })
 
 export default router
+
+//guardian router
+router.beforeEach((to, from, next) => {
+  const authRequired = to.meta.login
+  if (authRequired) {
+    if (to.path !== '/home') {
+      next('/signup')
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
+})

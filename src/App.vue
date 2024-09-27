@@ -21,7 +21,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ms-auto">
             <a class="nav-link active text-white" aria-current="page"
-              ><RouterLink to="/">Home</RouterLink></a
+              ><RouterLink to="/">Inicio</RouterLink></a
             >
             <a class="nav-link"><RouterLink to="/login">Iniciar Sesión</RouterLink></a>
           </div>
